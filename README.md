@@ -115,7 +115,7 @@ python deploy/export_onnx_trt.py --weights runs/EagleEye/Finetune_coco128-mAP05_
 ```
 
 ## Test
-1. model size
+1. test model
 ```shell
 Base-coco128-mAP05_0.2293.pt                        14.8M
 # SlimPrune
@@ -125,7 +125,7 @@ Finetune-coco128-mAP05_0.0810-Slimpruned_0.5.engine  6.7M
 Finetune_coco128-mAP05_0.0860-EagleEyepruned.pt      6.0M
 Finetune_coco128-mAP05_0.0860-EagleEyepruned.engine  8.5M
 ```
-2. detect test
+2. inference test
 ```shell
 # Test: original.pt
 python detect.py  --weights runs/Base-coco128-mAP05_0.2293.pt
