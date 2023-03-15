@@ -130,7 +130,7 @@ Finetune_coco128-mAP05_0.0860-EagleEyepruned.engine  8.5M
 # Test: original.pt
 python detect.py  --weights runs/Base-coco128-mAP05_0.2293.pt
 ```
-Speed: 0.3ms pre-process, 6.0ms inference, 0.4ms NMS per image at shape (1, 3, 640, 640)
+> Speed: 0.3ms pre-process, 6.0ms inference, 0.4ms NMS per image at shape (1, 3, 640, 640)
 
 ```shell
 # Test: pruned.pt
@@ -138,9 +138,8 @@ python detect.py  --weights runs/SlimPrune/Finetune-coco128-mAP05_0.0810-Slimpru
 
 python detect.py  --weights runs/EagleEye/Finetune_coco128-mAP05_0.0860-EagleEyepruned.pt
 ```
-Speed: 0.3ms pre-process, 6.3ms inference, 0.4ms NMS per image at shape (1, 3, 640, 640)
-
-Speed: 0.3ms pre-process, 6.5ms inference, 0.4ms NMS per image at shape (1, 3, 640, 640)
+> Speed: 0.3ms pre-process, 6.3ms inference, 0.4ms NMS per image at shape (1, 3, 640, 640)  
+> Speed: 0.3ms pre-process, 6.5ms inference, 0.4ms NMS per image at shape (1, 3, 640, 640)
 
 ```shell
 # Test: pruned+FP16.engine
@@ -148,9 +147,8 @@ python deploy/detect_trt.py --weights runs/SlimPrune/Finetune-coco128-mAP05_0.08
 
 python deploy/detect_trt.py --weights runs/EagleEye/Finetune_coco128-mAP05_0.0860-EagleEyepruned.engine --device 0,1 --half
 ```
-Speed: 0.3ms pre-process, 1.3ms inference, 0.9ms NMS per image at shape (1, 3, 640, 640)
-
-Speed: 0.3ms pre-process, 1.5ms inference, 0.7ms NMS per image at shape (1, 3, 640, 640)
+> Speed: 0.3ms pre-process, 1.3ms inference, 0.9ms NMS per image at shape (1, 3, 640, 640)  
+> Speed: 0.3ms pre-process, 1.5ms inference, 0.7ms NMS per image at shape (1, 3, 640, 640)
 
 ## Result
 
