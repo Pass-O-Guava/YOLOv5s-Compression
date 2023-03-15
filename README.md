@@ -165,10 +165,12 @@ Speed: 0.3ms pre-process, 1.5ms inference, 0.7ms NMS per image at shape (1, 3, 6
 ## Plan
 - [X] Base-train
 - [X] Prune（SlimPrune、EagleEye）
+- [X] Finetune
 - [X] FP16 Quantization
 - [X] INT8 PTQ
-- []  INT8 QAT
-- []  Distillation
+- [ ] INT8 QAT
+- [ ] Change Backbone(mobilev2/...)
+- [ ] Distillation
 
 
 ## Acknowledge
