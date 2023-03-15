@@ -33,7 +33,6 @@ datasets/
 # download pre-trained weights
 cd {project}
 wget -O yolov5s-v5.0.pt https://github.com/ultralytics/yolov5/releases/download/v5.0/yolov5s.pt
-wget -O yolov5s-v6.0.pt https://github.com/ultralytics/yolov5/releases/download/v6.0/yolov5s.pt
 ```
 
 ## 1. Base Train
