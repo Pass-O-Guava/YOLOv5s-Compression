@@ -50,22 +50,22 @@ python train.py --data data/coco128.yaml --imgsz 640 --weights yolov5lPP-LC.pt -
 I. Slim (BN-L1)
 ```shell
 # sparse train
-python train.py --data data/coco128.yaml --imgsz 640 --weights runs/train/exp/weights/best-coco128-mAP05-02293.pt --cfg models/prunModels/yolov5s-pruning.yaml --epochs 100 --device 0,1 --sparse
+python train.py --data data/coco128.yaml --imgsz 640 --weights runs/Base-coco128-mAP05_0.2293.pt --cfg models/prunModels/yolov5s-pruning.yaml --epochs 100 --device 0,1 --sparse
 
 # prune
-python pruneSlim.py --data data/coco128.yaml --weights runs/2_sparse-coco128-mAP05-035504.pt --cfg models/prunModels/yolov5s-pruning.yaml --path yolov5s-pruned.yaml --global_percent 0.5 --device 0,1
+python pruneSlim.py --data data/coco128.yaml --weights runs/sparse-coco128-mAP05-035504.pt --cfg models/prunModels/yolov5s-pruning.yaml --path yolov5s-pruned.yaml --global_percent 0.5 --device 0,1
 
 # finetune
-python train.py --data data/coco128.yaml --imgsz 640 --weights runs/3_sparse-coco128-mAP05-035504-Slimpruned.pt --cfg yolov5s-pruned.yaml --epochs 100 --device 0,1
+python train.py --data data/coco128.yaml --imgsz 640 --weights runs/sparse-coco128-mAP05-035504-Slimpruned.pt --cfg yolov5s-pruned.yaml --epochs 100 --device 0,1
 ```
 
 II. EagleEye (un-test)
 ```shell
 # search best sub-net
-python pruneEagleEye.py --data data/coco128.yaml --weights runs/1_base-coco128-mAP05-02293.pt --cfg models/prunModels/yolov5s-pruning.yaml  --path yolov5s-pruned-eagleeye.yaml --max_iter 100 --remain_ratio 0.5 --delta 0.02
+python pruneEagleEye.py --data data/coco128.yaml --weights runs/Base-coco128-mAP05_0.2293.pt --cfg models/prunModels/yolov5s-pruning.yaml  --path yolov5s-pruned-eagleeye.yaml --max_iter 100 --remain_ratio 0.5 --delta 0.02
 
 # finetune
-python train.py --data data/coco128.yaml --imgsz 640 --weights runs/3_base-coco128-mAP05-02293-EagleEyepruned.pt --cfg yolov5s-pruned-eagleeye.yaml --epochs 100 --device 0,1
+python train.py --data data/coco128.yaml --imgsz 640 --weights runs/base-coco128-mAP05-02293-EagleEyepruned.pt --cfg yolov5s-pruned-eagleeye.yaml --epochs 100 --device 0,1
 ```
 
 
@@ -161,3 +161,17 @@ Speed: 0.3ms pre-process, 1.5ms inference, 0.7ms NMS per image at shape (1, 3, 6
 | SlimPrune.engine  |  6.7M | **1.3ms** |
 | EagleEye.pt       |  6.0M | 6.5ms |
 | EagleEye.engine   |  8.5M | 1.5ms |
+
+## Plan
+- [X] Base-train
+- [X] Prune（SlimPrune、EagleEye）
+- [X] FP16 Quantization
+- [X] INT8 PTQ
+- []  INT8 QAT
+- []  Distillation
+
+
+## Acknowledge
+https://github.com/Gumpest/YOLOv5-Multibackbone-Compression
+https://github.com/maggiez0138/yolov5_quant_sample
+https://github.com/Syencil/mobile-yolov5-pruning-distillation
