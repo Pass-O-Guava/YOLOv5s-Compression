@@ -59,7 +59,7 @@ python pruneSlim.py --data data/coco128.yaml --weights runs/sparse-coco128-mAP05
 python train.py --data data/coco128.yaml --imgsz 640 --weights runs/sparse-coco128-mAP05-035504-Slimpruned.pt --cfg yolov5s-pruned.yaml --epochs 100 --device 0,1
 ```
 
-II. EagleEye (un-test)
+II. EagleEye
 ```shell
 # search best sub-net
 python pruneEagleEye.py --data data/coco128.yaml --weights runs/Base-coco128-mAP05_0.2293.pt --cfg models/prunModels/yolov5s-pruning.yaml  --path yolov5s-pruned-eagleeye.yaml --max_iter 100 --remain_ratio 0.5 --delta 0.02
