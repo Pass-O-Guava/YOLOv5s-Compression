@@ -81,15 +81,10 @@ rm trt/yolov5s_calibration.cache
 
 python trt/onnx_to_trt.py --model runs/SlimPrune/Finetune-coco128-mAP05_0.0810-Slimpruned_0.5.onnx --dtype int8 --batch-size 4 --num-calib-batch 16 --calib-img-dir ../datasets/coco128/images/train2017
 ```
-5.3 Evaluate the accurary of TensorRT inference result.
+5.3 Evaluate the accurary of TensorRT inference result. (Unfinished)
 ```shell
-# datasets eval (coco128 json label Unfinished)
+# datasets eval (coco128 json label
 ??? python trt/eval_yolo_trt.py --model ./weights/xxx.trt -l
-
-# image test
-python trt/demo.py --model runs/SlimPrune/Finetune-coco128-mAP05_0.0810-Slimpruned_0.5-int8-4-16-minmax.trt
-
-python trt/demo.py --model runs/EagleEye/Finetune_coco128-mAP05_0.0860-EagleEyepruned-int8-4-16-minmax.trt
 ```
 
 ## 6. Quantization QAT (un-done)
@@ -117,13 +112,15 @@ python deploy/export_onnx_trt.py --weights runs/EagleEye/Finetune_coco128-mAP05_
 ## Test
 1. test model
 ```shell
-Base-coco128-mAP05_0.2293.pt                        14.8M
+Base-coco128-mAP05_0.2293.pt                                       14.8M
 # SlimPrune
-Finetune-coco128-mAP05_0.0810-Slimpruned_0.5.pt      4.6M
-Finetune-coco128-mAP05_0.0810-Slimpruned_0.5.engine  6.7M
+Finetune-coco128-mAP05_0.0810-Slimpruned_0.5.pt                     4.6M
+Finetune-coco128-mAP05_0.0810-Slimpruned_0.5.engine                 6.7M
+Finetune-coco128-mAP05_0.0810-Slimpruned_0.5-int8-4-16-minmax.trt   4.9M
 # EagleEye
 Finetune_coco128-mAP05_0.0860-EagleEyepruned.pt      6.0M
 Finetune_coco128-mAP05_0.0860-EagleEyepruned.engine  8.5M
+Finetune_coco128-mAP05_0.0860-EagleEyepruned-int8-4-16-minmax.trt   5.7M
 ```
 2. inference test
 ```shell
@@ -147,6 +144,11 @@ python deploy/detect_trt.py --weights runs/EagleEye/Finetune_coco128-mAP05_0.086
 ```
 > Speed: 0.3ms pre-process, 1.3ms inference, 0.9ms NMS per image at shape (1, 3, 640, 640)  
 > Speed: 0.3ms pre-process, 1.5ms inference, 0.7ms NMS per image at shape (1, 3, 640, 640)
+
+```shell
+python trt/demo.py --model runs/SlimPrune/Finetune-coco128-mAP05_0.0810-Slimpruned_0.5-int8-4-16-minmax.trt
+python trt/demo.py --model runs/EagleEye/Finetune_coco128-mAP05_0.0860-EagleEyepruned-int8-4-16-minmax.trt
+```
 
 ## Result
 
