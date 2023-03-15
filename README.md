@@ -154,9 +154,9 @@ python deploy/detect_trt.py --weights runs/EagleEye/Finetune_coco128-mAP05_0.086
 |  ----  | ---- | ----  |
 | Base.pt           | 14.8M | 6.0ms |
 | SlimPrune.pt      |  **4.6M** | 6.3ms |
-| SlimPrune.engine  |  6.7M | **1.3ms** |
+| SlimPrune-fp16.engine  |  6.7M | **1.3ms** |
 | EagleEye.pt       |  6.0M | 6.5ms |
-| EagleEye.engine   |  8.5M | 1.5ms |
+| EagleEye-fp16.engine   |  8.5M | 1.5ms |
 
 ## Plan
 - [X] Base-train
