@@ -175,7 +175,5 @@ Speed: 0.3ms pre-process, 1.5ms inference, 0.7ms NMS per image at shape (1, 3, 6
 
 ## Acknowledge
 > https://github.com/Gumpest/YOLOv5-Multibackbone-Compression
-
 > https://github.com/maggiez0138/yolov5_quant_sample
-
 > https://github.com/Syencil/mobile-yolov5-pruning-distillation
