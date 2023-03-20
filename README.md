@@ -174,7 +174,7 @@ Speed: 0.3ms pre-process, 1.5ms inference, 0.7ms NMS per image at shape (1, 3, 6
 | SlimPrune_int8_PTQ.trt  |  4.9M | 3.5ms |
 | SlimPrune_int8_QAT.trt  |  10.1M | 4.1ms |
 | EagleEye.pt       |  6.0M | 6.5ms |
-| EagleEye_fp16.engine   |  8.5M | 1.5ms |
+| EagleEye_fp16.engine   |  8.5M | **1.5ms** |
 | EagleEye_int8_PTQ.trt   |  5.7M | 3.5ms |
 | EagleEye_int8_QTA.trt   |  10.1M | 3.9ms |
 
