@@ -4,6 +4,7 @@ import colorsys
 import numpy as np
 import matplotlib.pyplot as plt
 
+
 coco = ['person', 'bicycle', 'car', 'motorcycle', 'airplane', 'bus', 'train', 'truck', 'boat', 'traffic light',
         'fire hydrant', 'stop sign', 'parking meter', 'bench', 'bird', 'cat', 'dog', 'horse', 'sheep', 'cow',
         'elephant', 'bear', 'zebra', 'giraffe', 'backpack', 'umbrella', 'handbag', 'tie', 'suitcase', 'frisbee',
@@ -42,7 +43,7 @@ class Visualizer():
         return bgrs
 
 
-    def draw_results(self, img, boxes, confs, classes, output_name):
+    def draw_results(self, img, boxes, confs, classes, output):
         overlay = img.copy()
         final = img.copy()
         for box, conf, cls in zip(boxes, confs, classes):
@@ -53,5 +54,5 @@ class Visualizer():
 
         cv2.addWeighted(overlay, 0.5, final, 1 - 0.5, 0, final)
         
-        cv2.imwrite(output_name, final)
+        cv2.imwrite(output, final)
         return final

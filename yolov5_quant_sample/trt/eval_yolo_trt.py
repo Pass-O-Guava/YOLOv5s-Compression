@@ -21,8 +21,8 @@ from utils.general import coco80_to_coco91_class
 # converts 80-index (val2014) to 91-index (paper)
 coco91class = coco80_to_coco91_class()
 
-VAL_IMGS_DIR = '../datasets/coco128/images/train2017'
-VAL_ANNOTATIONS = '../datasets/coco128/labels/train2017'
+VAL_IMGS_DIR = '../coco/images/val2017'
+VAL_ANNOTATIONS = '../coco/annotations/instances_val2017.json'
 
 # coco128/images/train2017
 # coco128/labels/train2017

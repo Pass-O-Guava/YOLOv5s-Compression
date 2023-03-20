@@ -2,16 +2,18 @@ import cv2
 import sys
 import argparse
 import time
-import glob
 
 from Processor import Processor
 from Visualizer import Visualizer
+
+import os
+import glob
 
 def cli():
     desc = 'Run TensorRT yolov5 visualizer'
     parser = argparse.ArgumentParser(description=desc)
     parser.add_argument('-m', '--model', default='./weights/yolov5s-simple.trt', help='trt engine file path', required=False)
-    parser.add_argument('-i', '--image', default='./data/images/', help='image file path', required=False)
+    parser.add_argument('-p', '--path', default='./data/images/', help='image file path', required=False)
     args = parser.parse_args()
     return args
 
@@ -23,9 +25,8 @@ def main():
     processor = Processor(model=args.model, letter_box=True)
     visualizer = Visualizer()
 
-    images = glob.glob(f"{args.image}*.jpg")
-    print(images)
-    for image in images:
+    for image in glob.glob(os.path.join(args.path, '*.jpg')):
+
         img = cv2.imread(image)
 
         t1 = time.time()
@@ -44,8 +45,9 @@ def main():
             # print(item)
             pass
 
-        output_name = f"./{image.split('/')[-1].split('.')[0]}_{args.model.split('/')[-1].split('.trt')[0]}.jpg"
-        visualizer.draw_results(img, pred[:, :4], pred[:, 4], pred[:, 5], output_name)
+        output = os.path.join(args.model.replace(args.model.split('/')[-1], ''), f"result_{image.split('/')[-1]}")
+        print(f"==> output: {output}")
+        visualizer.draw_results(img, pred[:, :4], pred[:, 4], pred[:, 5], output)
 
 
 
